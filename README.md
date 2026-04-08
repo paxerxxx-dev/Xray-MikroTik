@@ -33,6 +33,7 @@
 
 <a name='Pre_edit'></a>
 ## Преднастройка RouterOS
+:warning: Отключите **FastTrack** в RouterOS.
 
 Создадим отдельную таблицу маршрутизации:
 ```
