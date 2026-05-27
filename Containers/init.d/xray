@@ -1,0 +1,18 @@
+#!/sbin/openrc-run
+
+# Description of the service
+description="Xray service"
+
+# The command to run
+command="/tmp/xray/xray"
+command_args="run -config /opt/xray/config/config.json"
+pidfile="/run/${RC_SVCNAME}.pid"
+
+# Run the command in the background
+command_background=true
+
+start_post() {
+    sleep 5
+    ip addr add 172.31.200.10/30 dev tun0
+    ip route add default via 172.31.200.10 dev tun0 table 100
+}
