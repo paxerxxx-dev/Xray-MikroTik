@@ -15,7 +15,10 @@ echo "Xray preparing for launch"
 chmod 755 /tmp/xray/xray
 wget https://raw.githubusercontent.com/runetfreedom/russia-blocked-geosite/release/geosite.dat -O /tmp/xray/geosite.dat
 
+ps
+
 echo "Start Xray core"
+rc-service xray status
 rc-service xray start
 
 echo "Waiting for Xray SOCKS port 10800..."
