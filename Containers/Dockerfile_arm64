@@ -13,6 +13,7 @@ COPY /Containers/xray-core/Xray-linux-arm64-v8a.7z /opt/xray/xray.7z
 #Xray service
 COPY /Containers/init.d/xray /etc/init.d/xray
 RUN chmod +x /etc/init.d/xray
+RUN rc-update add xray default
 
 COPY /Containers/start.sh /opt/start.sh
 RUN chmod +x /opt/start.sh

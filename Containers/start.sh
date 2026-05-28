@@ -15,21 +15,6 @@ echo "Xray preparing for launch"
 chmod 755 /tmp/xray/xray
 wget https://raw.githubusercontent.com/runetfreedom/russia-blocked-geosite/release/geosite.dat -O /tmp/xray/geosite.dat
 
-ps
-
-echo "Start Xray core"
-rc-service xray status
-rc-service xray start
-
-echo "Waiting for Xray SOCKS port 10800..."
-for i in $(seq 1 10); do
-    if nc -z 127.0.0.1 10800 2>/dev/null; then
-        echo "SOCKS port is up!"
-        break
-    fi
-    echo "Port Xray not ready, retrying..."
-    sleep 1
-done
 ip rule add iif xray lookup 100
 
 echo "Container customization is complete"
